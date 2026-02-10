@@ -178,7 +178,7 @@
             </div>
         </div>
 
-        <div class="space-y-2 lg:px-2 lg:mt-0 mt-6">
+        <div class="space-y-2 lg:px-2 lg:mt-0 mt-5">
             <h1 class="text-sm md:text-lg font-semibold"
                 style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                         -webkit-background-clip: text;
