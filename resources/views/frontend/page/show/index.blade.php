@@ -349,7 +349,7 @@
                         $socialLinks = [
                             'fb' => 'https://www.facebook.com/PovBopheakGroup',
                             'te' => 'https://t.me/+85516222809',
-                            'whatsapp' => 'https://wa.me/087446277',
+                            'whatsapp' => 'https://wa.me/85587446277?text=Hello%20I%20want%20more%20information',
                             'youtube' => 'https://www.youtube.com/@povbopheaklandhome3948',
                             'tiktok' => 'https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW',
                             'wechat' => 'https://www.wechat.com/',

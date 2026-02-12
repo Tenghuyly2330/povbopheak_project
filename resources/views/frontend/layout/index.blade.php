@@ -11,7 +11,7 @@
         <meta property="og:url" content="{{ url('/') }}">
         <meta property="og:type" content="website">
 
-        <title>Pov Bopheak Land</title>
+        <title>Pov Bopheak Land & Home</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -51,17 +51,17 @@
             onclick="scrollToTop()"
             class="fixed bottom-6 right-6 z-[999] hidden cursor-pointer transition-opacity duration-300"
         >
-            <img 
-                src="{{ asset('assets/icon/button-scroll.png') }}" 
+            <img
+                src="{{ asset('assets/icon/button-scroll.png') }}"
                 alt="Scroll to top"
                 class="w-12 h-12 object-contain md:object-cover animate-bounce"
             >
         </button>
         <div class="relative w-full min-h-screen">
-    
+
             <!-- BACKGROUND IMAGE -->
-            <img 
-                src="{{ asset('assets/background/bg-home-4.svg') }}" 
+            <img
+                src="{{ asset('assets/background/bg-home-4.svg') }}"
                 alt="Background"
                 class="absolute inset-0 h-[60%] w-full md:h-full object-cover -z-10"
             >
@@ -153,8 +153,8 @@
  {{-- <div class="relative w-full h-[180vh]">
 
             <!-- BACKGROUND IMAGE -->
-            <img 
-            src="{{ asset('assets/background/bg-home.png') }}" 
+            <img
+            src="{{ asset('assets/background/bg-home.png') }}"
             alt="Background"
             class="w-full h-full object-cover"
             >

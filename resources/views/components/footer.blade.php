@@ -91,7 +91,7 @@
                     class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">
                 </a>
-                <a href="https://wa.me/087446277"
+                <a href="https://wa.me/85587446277?text=Hello%20I%20want%20more%20information"
                     class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/whatsapp.png') }}" alt=""
                         class="w-full h-full object-cover">
@@ -178,7 +178,7 @@
             </div>
         </div>
 
-        <div class="space-y-2 lg:px-2 lg:mt-0 mt-5">
+        <div class="space-y-2 lg:px-2 lg:mt-0 mt-6">
             <h1 class="text-sm md:text-lg font-semibold"
                 style="background: linear-gradient(90deg, #F2A93F 0%, #FFFBA6 100%);
                         -webkit-background-clip: text;
