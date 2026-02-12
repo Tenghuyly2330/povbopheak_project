@@ -5,10 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="Pov Bopheak Land">
         <meta property="og:description" content="website of Pov Bopheak Land">
-        <meta property="og:image" content="https://povbopheak.com/assets/logo/logo-fina-social.png">
+        <meta property="og:image" content="https://www.povbopheak.com/assets/logo/logo-fina-social.png">
+        <meta property="og:image:secure_url" content="https://www.povbopheak.com/assets/logo/logo-fina-social.png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
-        <meta property="og:url" content="{{ url('/') }}">
+        <meta property="og:url" content="https://www.povbopheak.com/">
+        {{-- <meta property="og:url" content="{{ url('/') }}"> --}}
         <meta property="og:type" content="website">
 
         <title>Pov Bopheak Land & Home</title>
