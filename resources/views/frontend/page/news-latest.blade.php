@@ -33,7 +33,7 @@
                         <img
                             src="{{ asset($item->images[0]) }}"
                             alt="{{ $item->title_en }}"
-                            class="w-full h-60 object-cover rounded"
+                            class="aspect-3/2 object-cover rounded"
                         >
                     @endif
 

@@ -111,7 +111,7 @@
                     <img
                         src="{{ asset($img) }}"
                         alt="{{ $item->title_en }}"
-                        class="w-full h-64 object-cover rounded-xl"
+                        class="aspect-3/2 object-cover rounded-xl"
                     >
                 @endforeach
             </div>
