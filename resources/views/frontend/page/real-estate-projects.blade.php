@@ -15,7 +15,7 @@
                     <!-- CARD 1-->
                     <div id="project-{{ $item->id }}"
                         class="bg-white rounded-2xl border border-[#D9D9D9] shadow-sm p-1 flex flex-col space-y-4">
-                        <div class="h-56 md:h-60 bg-gray-200 rounded-xl overflow-hidden">
+                        <div class="p-0 aspect-4/5 bg-gray-200 rounded-xl overflow-hidden">
                             <img src="{{ asset('storage/' . $item->image) }}" class="w-full h-full object-cover"
                                 alt="">
                         </div>
