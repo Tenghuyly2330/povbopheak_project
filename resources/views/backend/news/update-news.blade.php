@@ -48,7 +48,7 @@
                          <!-- Upload New Images -->
                     <div class="mb-5">
                         <label class="block mb-2 text-sm font-medium text-[#0F4634]">
-                            Upload New Images (When update image needed close old image for show new image)
+                            Upload New Images (W: 300px , H: 200px)
                         </label>
                         <input id="images" type="file" name="edit_images[]" multiple accept="image/*"
                             class="form-control block w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" />

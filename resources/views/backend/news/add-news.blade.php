@@ -50,11 +50,11 @@
                                 <div class="row col-12">
                                     <div class="mb-5">
                                         <label for="images" class="block mb-2 text-sm font-medium text-[#0F4634]">
-                                            Upload Images (Can Multiple) 
+                                            Upload Images (Can Multiple) - W: 300px , H: 200px
                                         </label>
 
-                                        <input id="images" type="file" name="images[]" multiple accept="image/*" class="form-control block w-full text-sm text-gray-700 border border-gray-300 
-                                            rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2 
+                                        <input id="images" type="file" name="images[]" multiple accept="image/*" class="form-control block w-full text-sm text-gray-700 border border-gray-300
+                                            rounded-lg cursor-pointer bg-gray-50 focus:outline-none focus:ring-2
                                             focus:ring-[#0F4634] focus:border-[#0F4634]" />
 
                                         <!-- Preview container -->

@@ -71,11 +71,11 @@
 
         <!-- PROJECT INFO -->
         <div class="section space-y-4">
-            <h2 class="text-xl font-bold">Project Info for show default</h2>
+            <h2 class="text-lg font-bold !text-[#452384]">Project Info for show default</h2>
 
             <!-- Banner IMAGE -->
             <div class="mb-4">
-                <label class="font-medium">Banner of Project</label>
+                <label class="font-medium">Banner of Project (w: 1024px, h: 800px)</label>
                 <input type="file" id="banner" name="banner" accept=".jpg,.jpeg,.png,.gif,.svg"
                     class="form-control mt-2">
                 @error('banner')
@@ -90,8 +90,7 @@
             </div>
 
             <div class="mb-4">
-                <label class="font-medium">Show Default Images (Please kidly forgot close old image if you went
-                    update)</label>
+                <label class="font-medium mb-2">Show Default Images Slider (w: 300px, h: 200px)</label>
                 <input type="file" name="image_default[]" id="image_default_input" multiple accept="image/*"
                     class="form-control">
                 <input type="hidden" name="removed_images" id="removed_images">
@@ -136,7 +135,9 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input" value="{{ $project->type_kh }}">
                 <input name="type_ch" placeholder="Project Type CH" class="input" value="{{ $project->type_ch }}">
             </div>
-            <input type="file" name="image" id="image" class="input mt-4" />
+
+            <label class="font-medium  mt-4">Default Image (w: 400px, h: 500px)</label>
+            <input type="file" name="image" id="image" class="input" />
             <div id="image_preview" class="flex flex-wrap gap-2 mt-2">
                 @if ($project->image)
                     <img src="{{ asset('storage/' . $project->image) }}" style="width:300px; border-radius:6px;">
@@ -189,7 +190,7 @@
                     <div class="grid grid-cols-1 gap-2">
                         <!-- CATEGORY BANNER -->
                         <div class="space-y-2">
-                            <label class="font-semibold">Category Banner</label>
+                            <label class="font-semibold">Category Banner (w: 1024px, h: 700px)</label>
 
                             <input type="file" :name="'category[' + cIndex + '][banner_cate]'"
                                 @change="previewCategoryBanner($event, cIndex)" class="form-control">
@@ -223,7 +224,7 @@
                             <div class="grid grid-cols-1 gap-2">
                                 <!-- TYPE BANNER -->
                                 <div class="space-y-2">
-                                    <label class="font-semibold">Type Banner</label>
+                                    <label class="font-semibold">Type Banner (w: 1024px, h: 700px)</label>
 
                                     <input type="file"
                                         :name="'category[' + cIndex + '][cat_type][' + tIndex + '][banner_type]'"
@@ -306,6 +307,7 @@
                                         <button type="button" @click="removeImage(cIndex, tIndex, iIndex)" class="btn btn-sm btn-danger">✕</button>
                                     </div>
                                 </template> --}}
+                                <p class="mt-4">Image Slider (w: 300px, h: 200px)</p>
                                 <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
                                     <div class="d-flex align-items-center mb-2">
                                         <input type="file"

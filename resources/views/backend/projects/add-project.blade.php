@@ -71,7 +71,7 @@
             <h2 class="text-xl font-bold">Project Info show default</h2>
             <!-- Banner IMAGE -->
             <div class="mb-4">
-                <label class="font-medium">Banner of Project</label>
+                <label class="font-medium">Banner of Project (w: 1024px, h: 700px)</label>
                 <input type="file" id="banner" name="banner" accept="image/*" class="form-control mt-2">
             </div>
             <div id="image_banner_preview" class="flex flex-wrap gap-2 mt-2">
@@ -79,7 +79,7 @@
             </div>
             <!-- MULTIPLE IMAGES -->
             <div class="mb-4">
-                <label class="font-medium">Show Default Images (Multiple) of Projects</label>
+                <label class="font-medium">Show Default Images Slider (w: 300px, h: 200px)</label>
                 <input type="file" id="image_default_input" name="image_default[]" multiple accept="image/*" class="form-control mt-2">
             </div>
             <div id="image_default_preview" class="flex flex-wrap gap-2 mt-2">
@@ -108,12 +108,14 @@
                 <input name="type_kh" placeholder="Project Type KH" class="input">
                 <input name="type_ch" placeholder="Project Type CH" class="input">
             </div>
-            <input type="file" name="image" class="input mt-4" accept="image/*" onchange="previewImage(event)">
+
+            <p class="mt-4">Default Images (w: 400px, h:500px)</p>
+            <input type="file" name="image" class="input mt-2" accept="image/*" onchange="previewImage(event)">
 
             <img id="imagePreview"
                 class="mt-4 w-40 h-40 object-cover rounded-lg border hidden"
                 alt="Preview">
-                    </div>
+        </div>
         <!-- LOCATION -->
         <div class="section space-y-4">
             <h2 class="text-xl font-bold">Location</h2>
@@ -140,7 +142,7 @@
         <div class="section space-y-4">
             <h2 class="text-xl font-bold">Categories</h2>
 
-           
+
 
             <template x-for="(cat, cIndex) in categories" :key="cIndex">
                 <div class="border p-4 rounded bg-white space-y-4">
@@ -154,7 +156,7 @@
                     <div class="grid grid-cols-1 gap-2">
                         <!-- CATEGORY BANNER -->
                         <div class="space-y-2">
-                            <label class="font-semibold">Category Banner</label>
+                            <label class="font-semibold">Category Banner (w: 1024px, h: 700px)</label>
 
                             <input type="file"
                                 :name="'category[' + cIndex + '][banner_cate]'"
@@ -189,7 +191,7 @@
                             <div class="grid grid-cols-1 gap-2">
                                 <!-- TYPE BANNER -->
                                 <div class="space-y-2">
-                                    <label class="font-semibold">Type Banner</label>
+                                    <label class="font-semibold">Type Banner (w: 1024px, h: 700px)</label>
 
                                     <input type="file"
                                         :name="'category[' + cIndex + '][cat_type][' + tIndex + '][banner_type]'"
@@ -213,7 +215,7 @@
 
                             <input x-model="type.slug" readonly class="input bg-gray-100 d-none">
 
-                         
+
 
                             <div class="grid grid-cols-3 gap-2">
                                 <textarea x-model="type.des.en" placeholder="Desc EN" class="input"></textarea>
@@ -222,6 +224,7 @@
                             </div>
 
                             <!-- IMAGES -->
+                            <p class="mt-4">Image Slider (w: 300px, h: 200px)</p>
                             <div class="space-y-2">
                                 <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
                                     <div class="d-flex align-items-center mb-2">
@@ -321,7 +324,7 @@ previewTypeBanner(event, cIndex, tIndex) {
             this.categories.push({
                 name: { en:'', kh:'', ch:'' },
                 slug: '',
-                bannerPreview: null, 
+                bannerPreview: null,
                 cat_type: [this.newType()]
             })
         },
@@ -384,11 +387,11 @@ previewTypeBanner(event, cIndex, tIndex) {
                 slug: '',
                 des: { en:'', kh:'', ch:'' },
                 imgPreview: [],
-                bannerPreview: null, 
+                bannerPreview: null,
                 about: []   // 🔥 REQUIRED
             }
         }
-        
+
     }
 }
 </script>
