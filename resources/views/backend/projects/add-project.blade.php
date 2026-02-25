@@ -224,7 +224,7 @@
                             </div>
 
                             <!-- IMAGES -->
-                            <p class="mt-4">Image Slider (w: 300px, h: 200px)</p>
+                            <p class="mt-4">Image Slider - Min: 4 Images (w: 300px, h: 200px)</p>
                             <div class="space-y-2">
                                 <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
                                     <div class="d-flex align-items-center mb-2">
