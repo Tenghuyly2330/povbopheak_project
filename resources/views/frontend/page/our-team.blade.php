@@ -19,7 +19,7 @@
             ? asset('assets/about_us/sms-mobile-en.svg')
             : (app()->getLocale() === 'kh'
                 ? asset('assets/about_us/sms-mobile-kh.svg')
-                : asset('assets/about_us/sms-mobile-kh.svg'))
+                : asset('assets/about_us/sms-mobile-ch.svg'))
         }}" alt="" class="w-full h-full object-cover md:hidden" style="user-select:none; pointer-events:none;">
     {{-- <div class="relative w-full h-auto md:h-[95vh] lg:h-[130vh] xl:h-[115vh]" x-data="{ open: false }">
 
