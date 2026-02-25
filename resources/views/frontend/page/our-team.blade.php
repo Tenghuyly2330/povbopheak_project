@@ -1,5 +1,5 @@
 <section class="relative overflow-hidden">
-    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] md:mt-0 mt-4 py-4">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] md:mt-0 mt-4 py-4 mb-10">
         {{ app()->getLocale() === 'en'
     ? 'Message from the Chairman'
     : (app()->getLocale() === 'kh'
@@ -9,17 +9,24 @@
     </h1>
 
     <img src="{{ app()->getLocale() === 'en'
-            ? asset('assets/about_us/sms-form-chairman-en-final.png')
+            ? asset('assets/about_us/sms-form-chairman-en-final.svg')
             : (app()->getLocale() === 'kh'
-                ? asset('assets/about_us/ms-khmer.png')
-                : asset('assets/about_us/ms-chin.png'))
-        }}" alt="" class="w-full h-full object-cover" style="user-select:none; pointer-events:none;">
+                ? asset('assets/about_us/sms-form-chairman-khmer-final.svg')
+                : asset('assets/about_us/sms-form-chairman-cn-final.svg'))
+        }}" alt="" class="w-full h-full object-cover hidden md:flex" style="user-select:none; pointer-events:none;">
+
+      <img src="{{ app()->getLocale() === 'en'
+            ? asset('assets/about_us/sms-mobile-en.svg')
+            : (app()->getLocale() === 'kh'
+                ? asset('assets/about_us/sms-mobile-kh.svg')
+                : asset('assets/about_us/sms-mobile-kh.svg'))
+        }}" alt="" class="w-full h-full object-cover md:hidden" style="user-select:none; pointer-events:none;">
     {{-- <div class="relative w-full h-auto md:h-[95vh] lg:h-[130vh] xl:h-[115vh]" x-data="{ open: false }">
-       
+
         <img src="{{ asset('assets/about_us/bg-ms.svg') }}" alt=""
             class="w-full h-full object-contain xl:object-cover absolute inset-0">
 
-       
+
         <div class="relative z-10 flex items-center justify-center h-full px-4">
             <div class="max-w-7xl text-cente p-6 md:p-10">
 

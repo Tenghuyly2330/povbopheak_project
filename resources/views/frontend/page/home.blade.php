@@ -86,11 +86,15 @@
 
                 {{-- Icon Link Social Media --}}
                 <div class="w-16 h-96 rounded-full flex flex-col justify-between items-center py-2">
-                    <a href="https://www.facebook.com/PovBopheakGroup"
+                     <a href="https://www.pinterest.com/alexevengroen/pov-bopheak-land-home-co-ltd/" target="_blank"
+                        class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer animate-bounce">
+                        <img src="{{ asset('assets/icon/pinterest.svg') }}" alt="" class="w-full h-full object-cover">
+                    </a>
+                    <a href="https://www.facebook.com/PovBopheakGroup" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/fb.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
-                    <a href="https://t.me/+85516222809"
+                    <a href="https://t.me/+85516222809" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
@@ -99,19 +103,19 @@
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/whatsapp.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
-                    <a href=" https://www.youtube.com/@povbopheaklandhome3948"
+                    <a href=" https://www.youtube.com/@povbopheaklandhome3948" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/youtube.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
-                    <a href="https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW"
+                    <a href="https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/tiktok.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
-                    <a href=""
+                    <a href="" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/wechat.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
-                    <a href="https://www.linkedin.com/company/pov-bopheak-land-home-co-ltd/?viewAsMember=true"
+                    <a href="https://www.linkedin.com/company/pov-bopheak-land-home-co-ltd/?viewAsMember=true" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce ">
                         <img src="{{ asset('assets/icon/in.png') }}" alt="" class="w-full h-full object-cover">
                     </a>

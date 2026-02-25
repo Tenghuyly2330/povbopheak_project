@@ -40,11 +40,11 @@
                             </h3>
                             <p
                                 class="flex justify-center items-center text-center text-xs md:text-sm font-normal max-w-48 mx-auto text-[#03254B]">
-                                {{ app()->getLocale() === 'en'
+                                {!! nl2br(e(app()->getLocale() === 'en'
                                     ? $item->locate_text_en
                                     : (app()->getLocale() === 'kh'
                                         ? $item->locate_text_kh
-                                        : $item->locate_text_ch) }}
+                                        : $item->locate_text_ch))) !!}
                             </p>
                         </div>
 

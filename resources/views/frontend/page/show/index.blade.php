@@ -13,8 +13,8 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        {{-- Like icon --}}
-    <link rel="stylesheet" href="{{asset('vendor/fonts/boxicons.css')}}" />
+    {{-- Like icon --}}
+    <link rel="stylesheet" href="{{ asset('vendor/fonts/boxicons.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap"
@@ -33,135 +33,130 @@
             text-overflow: ellipsis;
         }
 
-        [x-cloak] { display: none !important; }
+        [x-cloak] {
+            display: none !important;
+        }
     </style>
 
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <style>
         .ck-content table {
-    width: 100%;          /* make table visible */
-    border-collapse: collapse;
-}
+            width: 100%;
+            /* make table visible */
+            border-collapse: collapse;
+        }
 
-.ck-content table,
-.ck-content th,
-.ck-content td {
-    border: 1px solid #ccc; /* visible borders */
-}
+        .ck-content table,
+        .ck-content th,
+        .ck-content td {
+            border: 1px solid #ccc;
+            /* visible borders */
+        }
 
-.ck-content th,
-.ck-content td {
-    padding: 6px 12px;
-}
+        .ck-content th,
+        .ck-content td {
+            padding: 6px 12px;
+        }
 
-.ck-content figure.table {
-    margin: 1rem 0;
-    overflow-x: auto;  /* allow horizontal scroll if wide */
-}
-/* ===== LIST STYLE (IMPORTANT) ===== */
-.ck-content ul {
-    list-style-type: disc;
-    margin-left: 1.5rem;
-    padding-left: 1rem;
-}
+        .ck-content figure.table {
+            margin: 1rem 0;
+            overflow-x: auto;
+            /* allow horizontal scroll if wide */
+        }
 
-.ck-content ol {
-    list-style-type: decimal;
-    margin-left: 1.5rem;
-    padding-left: 1rem;
-}
+        /* ===== LIST STYLE (IMPORTANT) ===== */
+        .ck-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            padding-left: 1rem;
+        }
 
-.ck-content li {
-    margin-bottom: 0.4rem;
-}
+        .ck-content ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            padding-left: 1rem;
+        }
 
-/* Nested lists */
-.ck-content ul ul {
-    list-style-type: circle;
-}
+        .ck-content li {
+            margin-bottom: 0.4rem;
+        }
 
-.ck-content ol ol {
-    list-style-type: lower-alpha;
-}
+        /* Nested lists */
+        .ck-content ul ul {
+            list-style-type: circle;
+        }
 
-.whitespace-pre-wrap {
-    white-space: pre-wrap;
-}
+        .ck-content ol ol {
+            list-style-type: lower-alpha;
+        }
 
+        .whitespace-pre-wrap {
+            white-space: pre-wrap;
+        }
     </style>
 </head>
 
 <body>
- @php
-    // Decode images if stored as JSON
-    $images = is_array($projects->image_default)
-        ? $projects->image_default
-        : json_decode($projects->image_default ?? '[]', true);
+    @php
+        // Decode images if stored as JSON
+        $images = is_array($projects->image_default)
+            ? $projects->image_default
+            : json_decode($projects->image_default ?? '[]', true);
 
-    $currentProjectData = [
-        'des' => app()->getLocale() === 'en'
-            ? $projects->description_default_en
-            : (app()->getLocale() === 'kh'
-                ? $projects->description_default_kh
-                : $projects->description_default_cn),
+        $currentProjectData = [
+            'des' =>
+                app()->getLocale() === 'en'
+                    ? $projects->description_default_en
+                    : (app()->getLocale() === 'kh'
+                        ? $projects->description_default_kh
+                        : $projects->description_default_cn),
 
-        // MUST be array for slider
-        'img' => is_array($images) ? $images : [],
-    ];
-@endphp
+            // MUST be array for slider
+            'img' => is_array($images) ? $images : [],
+        ];
+    @endphp
 
 
 
     <div x-data='projectData(@json($categories), "{{ app()->getLocale() === 'km' ? 'kh' : (app()->getLocale() === 'cn' ? 'ch' : app()->getLocale()) }}", @json($currentProjectData))'
-     class="relative w-full min-h-screen">
+        class="relative w-full min-h-screen">
 
         <!-- Background -->
-<div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0 -z-10">
 
-    <!-- TYPE BANNER (highest priority) -->
-    <template
-        x-if="
+            <!-- TYPE BANNER (highest priority) -->
+            <template
+                x-if="
             activeCategory !== null &&
             activeType !== null &&
             categories[activeCategory]?.cat_type?.[activeType]?.banner_type
-        "
-    >
-        <img
-            :src="`/storage/${categories[activeCategory].cat_type[activeType].banner_type}`"
-            class="w-full h-full object-cover"
-        >
-    </template>
+        ">
+                <img :src="`/storage/${categories[activeCategory].cat_type[activeType].banner_type}`"
+                    class="w-full h-full object-cover">
+            </template>
 
-    <!-- CATEGORY BANNER -->
-    <template
-        x-if="
+            <!-- CATEGORY BANNER -->
+            <template
+                x-if="
             (activeType === null || !categories[activeCategory]?.cat_type?.[activeType]?.banner_type) &&
             activeCategory !== null &&
             categories[activeCategory]?.banner_cate
-        "
-    >
-        <img
-            :src="`/storage/${categories[activeCategory].banner_cate}`"
-            class="w-full h-full object-cover"
-        >
-    </template>
+        ">
+                <img :src="`/storage/${categories[activeCategory].banner_cate}`" class="w-full h-full object-cover">
+            </template>
 
-    <!-- PROJECT BANNER (default / initial) -->
-    <template
-        x-if="
+            <!-- PROJECT BANNER (default / initial) -->
+            <template
+                x-if="
             activeCategory === null &&
             {{ $projects->banner ? 'true' : 'false' }}
-        "
-    >
-        <img
-            src="{{ asset('storage/' . $projects->banner) }}"
-            class="w-full h-full object-cover"
-        >
-    </template>
+        ">
+                <img src="{{ asset('storage/' . $projects->banner) }}" class="w-full h-full object-cover">
+            </template>
 
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-white/60"></div>
-</div>
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-white/60"></div>
+        </div>
 
 
 
@@ -175,16 +170,14 @@
                             ? 'Pov Bopheak'
                             : (app()->getLocale() === 'kh'
                                 ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រ'
-                                : 'Pov Bopheak')
-                        }}
+                                : 'Pov Bopheak') }}
                     </span>
                     <span class="font-normal ml-1">
                         {{ app()->getLocale() === 'en'
                             ? 'Land & Home Co., Ltd'
                             : (app()->getLocale() === 'kh'
                                 ? 'លែន&ហូមឯ.ក'
-                                : 'Land & Home 有限公司')
-                        }}
+                                : 'Land & Home 有限公司') }}
                     </span>
                 </div>
             </a>
@@ -194,19 +187,17 @@
                         ? 'Real Estate Projects'
                         : (app()->getLocale() === 'kh'
                             ? 'គម្រោងអចលទ្រព្យ'
-                            : '房地产项目')
-                    }}
+                            : '房地产项目') }}
                 </p>
             </div>
         </div>
 
         <!-- Main Content -->
-        <div
-             x-data="{
-                ...projectData(...),
-                showImage: false,
-                activeImage: null
-            }"
+        <div x-data="{
+            ...projectData(...),
+            showImage: false,
+            activeImage: null
+        }"
             class="max-w-7xl mx-auto w-full
             flex lg:flex-row flex-col
             justify-between
@@ -222,26 +213,22 @@
                             ? $projects->name_en
                             : (app()->getLocale() === 'kh'
                                 ? $projects->name_kh
-                                : $projects->name_ch)
-                        }}
+                                : $projects->name_ch) }}
                     </h1>
                 </button>
                 {{-- Category --}}
                 <div class="flex flex-wrap justify-start items-center gap-2 w-full px-2 cursor-pointer">
                     <template x-for="(cat, index) in categories" :key="index">
-                        <div
-                            class="inline-flex rounded-full transition-all duration-200"
+                        <div class="inline-flex rounded-full transition-all duration-200"
                             :class="{
                                 'bg-gradient-to-r from-yellow-400 to-yellow-200': activeCategory === index,
                                 'border border-[#03254B]': activeCategory === null && index === 0
-                            }"
-                        >
+                            }">
                             <button
                                 class="px-4 py-1 md:px-6 md:py-4
                                     text-md md:text-lg
                                     text-center whitespace-nowrap rounded-full"
-                                @click="setActiveCategory(index)"
-                                x-text="cat?.name?.[lang] ?? ''">
+                                @click="setActiveCategory(index)" x-text="cat?.name?.[lang] ?? ''">
                             </button>
                         </div>
                     </template>
@@ -266,10 +253,7 @@
                 <div class="text-[#03254B] text-sm md:text-lg mt-2 lg:px-0 px-4">
                     <template x-for="item in displayedItems()" :key="item.slug">
                         <div class="mb-4">
-                           <p
-                                x-html="item.des"
-                                class="ck-content leading-10 whitespace-pre-wrap"
-                            ></p>
+                            <p x-html="item.des" class="ck-content leading-10 whitespace-pre-wrap"></p>
 
                         </div>
                     </template>
@@ -277,65 +261,45 @@
 
                 <!-- Download PDF -->
                 @if ($projects->pdf)
-                <h1 class="font-kantumruy text-[#03254B] md:text-lg text-sm">
-                    {{ app()->getLocale() === 'en'
-                ? 'Download to check its price and availability now'
-                : (app()->getLocale() === 'kh'
-                    ? 'ទាញយកឯកសារខាងក្រោមដើម្បីពិនិត្យតម្លៃនិងលំនៅដ្ឋានដែលនៅទំនេរ'
-                    : '现在下载以查看其价格和库存情况下载')
-            }}
-                </h1>
-                <div class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12 lg:ml-0 ml-4">
-                    <a href="{{ asset('storage/' . $projects->pdf) }}" download
-                        class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
-                        <span
-                            class="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                            {{ app()->getLocale() === 'en'
-                ? 'Download PDF'
-                : (app()->getLocale() === 'kh'
-                    ? 'ទាញយកឥឡូវនេះ'
-                    : '下载')
-            }}
-                        </span>
-                    </a>
+                    <h1 class="font-kantumruy text-[#03254B] md:text-lg text-sm">
+                        {{ app()->getLocale() === 'en'
+                            ? 'Download to check its price and availability now'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ទាញយកឯកសារខាងក្រោមដើម្បីពិនិត្យតម្លៃនិងលំនៅដ្ឋានដែលនៅទំនេរ'
+                                : '现在下载以查看其价格和库存情况下载') }}
+                    </h1>
+                    <div
+                        class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12 lg:ml-0 ml-4">
+                        <a href="{{ asset('storage/' . $projects->pdf) }}" download
+                            class="flex justify-center items-center font-medium bg-[#03254B] rounded-full w-40 h-12">
+                            <span class="bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                                {{ app()->getLocale() === 'en' ? 'Download PDF' : (app()->getLocale() === 'kh' ? 'ទាញយកឥឡូវនេះ' : '下载') }}
+                            </span>
+                        </a>
+                    </div>
+                @endif
+                <!-- Slider version mobile -->
+                <div class="md:hidden flex max-w-7xl mx-auto mt-2 px-3" x-show="currentImages().length > 0"
+                    x-data="projectDataM(@json($categories), '{{ app()->getLocale() }}', true)" @touchstart="touchStart($event)" @touchend="touchEnd($event)">
+                    <div class="relative w-full overflow-hidden rounded-xl">
+                        <div id="sliderMobile" class="flex transition-transform duration-500 ease-in-out">
+                            <template x-for="img in currentImages()" :key="img">
+                                <img :src="'{{ asset('storage') }}/' + img"
+                                    class="w-full h-56 object-cover flex-shrink-0" />
+                            </template>
+                        </div>
+
+                        <button @click="prev()"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">◀</button>
+                        <button @click="next()"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">▶</button>
+                    </div>
                 </div>
-
-
-
-            @endif
-                    <!-- Slider version mobile -->
-        <div
-    class="md:hidden flex max-w-7xl mx-auto mt-2 px-3"
-    x-show="currentImages().length > 0"
-    x-data="projectDataM(@json($categories), '{{ app()->getLocale() }}', true)"
-    @touchstart="touchStart($event)"
-    @touchend="touchEnd($event)"
->
-    <div class="relative w-full overflow-hidden rounded-xl">
-        <div
-            id="sliderMobile"
-            class="flex transition-transform duration-500 ease-in-out"
-        >
-            <template x-for="img in currentImages()" :key="img">
-                <img
-                    :src="'{{ asset('storage') }}/' + img"
-                    class="w-full h-56 object-cover flex-shrink-0"
-                />
-            </template>
-        </div>
-
-        <button @click="prev()" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">◀</button>
-        <button @click="next()" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/60 rounded-full p-2 text-white">▶</button>
-    </div>
-</div>
             </div>
 
             <!-- Right Column -->
             <div class="md:w-1/2 w-full flex flex-col items-center space-y-4 mt-4 md:ml-0 lg:ml-6 xl:ml-0 px-3">
-                <iframe
-                    src="{{ $projects->locate_link }}"
-                    class="w-full max-w-full h-72 rounded-xl"
-                    style="border:0;"
+                <iframe src="{{ $projects->locate_link }}" class="w-full max-w-full h-72 rounded-xl" style="border:0;"
                     loading="lazy">
                 </iframe>
 
@@ -344,9 +308,10 @@
                 </p> --}}
 
                 <!-- Social Icons -->
-                <div class="flex md:flex-row flex-wrap md:gap-4 py-5">
+                <div class="flex md:flex-row flex-wrap md:gap-4 items-center py-5">
                     @php
                         $socialLinks = [
+                            'pinterest' => 'https://www.pinterest.com/alexevengroen/pov-bopheak-land-home-co-ltd/',
                             'fb' => 'https://www.facebook.com/PovBopheakGroup',
                             'te' => 'https://t.me/+85516222809',
                             'whatsapp' => 'https://wa.me/85587446277?text=Hello%20I%20want%20more%20information',
@@ -358,8 +323,12 @@
                     @endphp
 
                     @foreach ($socialLinks as $icon => $link)
+                        @php
+                            $sizeClass =
+                                $icon === 'pinterest' ? 'w-8 h-8 md:w-10 md:h-10' : 'w-10 h-10 md:w-12 md:h-12';
+                        @endphp
                         <a href="{{ $link }}" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 md:w-12 md:h-12 rounded-full cursor-pointer hover:scale-110 transition">
+                            class="{{ $sizeClass }} rounded-full cursor-pointer hover:scale-110 transition">
                             <img src="{{ asset('assets/icon/' . $icon . '.png') }}" alt="{{ $icon }}"
                                 class="w-full h-full object-cover">
                         </a>
@@ -369,17 +338,11 @@
         </div>
 
         <!-- Slider version dasktop-->
-        <div
-            class="hidden max-w-[92%] mx-auto md:flex items-center gap-6 py-6"
-            x-show="currentImages().length > 0"
-            x-data="projectData(@json($categories), '{{ app()->getLocale() }}')"
-            @mouseenter="pauseAutoPlay"
-            @mouseleave="resumeAutoPlay"
-        >
+        <div class="hidden max-w-[92%] mx-auto md:flex items-center gap-6 py-6" x-show="currentImages().length > 0"
+            x-data="projectData(@json($categories), '{{ app()->getLocale() }}')" @mouseenter="pauseAutoPlay" @mouseleave="resumeAutoPlay">
 
             <!-- PREV -->
-            <button
-                @click="prev()" class="px-3 py-2">
+            <button @click="prev()" class="px-3 py-2">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" transform="rotate(-180 21 21)" fill="#1E1E1E" />
                     <path
@@ -401,8 +364,7 @@
             </div>
 
             <!-- NEXT -->
-            <button
-                @click="next()" class="px-3 py-2">
+            <button @click="next()" class="px-3 py-2">
                 <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
                     <circle cx="21" cy="21" r="21" fill="#1E1E1E" />
                     <path
@@ -414,181 +376,180 @@
 
     </div>
 
-  <script>
-function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
+    <script>
+        function projectData(categoriesData = [], defaultLang = 'en', initialStatic = {}) {
 
-    return {
-        categories: Array.isArray(categoriesData) ? categoriesData : [],
-        activeCategory: null,
-        activeType: null,
-        lang: defaultLang,
-        initialStatic: initialStatic,
+            return {
+                categories: Array.isArray(categoriesData) ? categoriesData : [],
+                activeCategory: null,
+                activeType: null,
+                lang: defaultLang,
+                initialStatic: initialStatic,
 
-        autoPlayInterval: null,
-        autoPlayDelay: 2500, // 3.5 seconds
-        isPaused: false,
+                autoPlayInterval: null,
+                autoPlayDelay: 2500, // 3.5 seconds
+                isPaused: false,
 
 
-        sliderIndex: 0,
-        visibleCount: 1,
-        gap: 16,
-        startX: 0,
-        endX: 0,
+                sliderIndex: 0,
+                visibleCount: 1,
+                gap: 16,
+                startX: 0,
+                endX: 0,
 
-        setActiveCategory(index) {
-    this.activeCategory = index;
-    this.activeType = 0;
-    this.sliderIndex = 0;
-    this.resetSlider();
-    this.startAutoPlay();
-},
+                setActiveCategory(index) {
+                    this.activeCategory = index;
+                    this.activeType = 0;
+                    this.sliderIndex = 0;
+                    this.resetSlider();
+                    this.startAutoPlay();
+                },
 
-setActiveType(index) {
-    this.activeType = index;
-    this.sliderIndex = 0;
-    this.resetSlider();
-    this.startAutoPlay();
-},
+                setActiveType(index) {
+                    this.activeType = index;
+                    this.sliderIndex = 0;
+                    this.resetSlider();
+                    this.startAutoPlay();
+                },
 
-        displayedItems() {
-            if (this.activeCategory !== null) {
-                const cat = this.categories[this.activeCategory];
-                if (cat?.cat_type?.length) {
-                    const type = cat.cat_type[this.activeType] || {};
-                    return [{
-                        des: type.des?.[this.lang] || '',
-                        img: Array.isArray(type.img) ? type.img : []
-                    }];
-                }
+                displayedItems() {
+                    if (this.activeCategory !== null) {
+                        const cat = this.categories[this.activeCategory];
+                        if (cat?.cat_type?.length) {
+                            const type = cat.cat_type[this.activeType] || {};
+                            return [{
+                                des: type.des?.[this.lang] || '',
+                                img: Array.isArray(type.img) ? type.img : []
+                            }];
+                        }
+                    }
+                    return [this.initialStatic];
+                },
+
+                currentImages() {
+                    const items = this.displayedItems();
+                    return items[0]?.img ?? [];
+                },
+
+                /* =====================
+                    SLIDER CONTROLS
+                ===================== */
+                next() {
+                    const total = this.currentImages().length;
+                    if (total <= 1) return;
+
+                    this.sliderIndex = (this.sliderIndex + 1) % total;
+                    this.updateSlider();
+                },
+
+                prev() {
+                    const total = this.currentImages().length;
+                    if (total <= 1) return;
+
+                    this.sliderIndex =
+                        (this.sliderIndex - 1 + total) % total;
+                    this.updateSlider();
+                },
+
+
+
+
+
+
+
+                updateSlider() {
+                    const container = document.getElementById('slider');
+                    if (!container || !container.children.length) return;
+
+                    const slide = container.children[0];
+                    const slideWidth = slide.offsetWidth;
+                    const step = slideWidth + this.gap;
+
+                    container.style.willChange = 'transform';
+                    container.style.transform =
+                        `translateX(-${220 * this.sliderIndex}px)`;
+
+                    // Mobile slider
+                    const containerMobile = document.getElementById('sliderMobile');
+                    if (containerMobile) {
+                        containerMobile.style.willChange = 'transform';
+                        containerMobile.style.transform =
+                            `translateX(-${100 * this.sliderIndex}%)`;
+                    }
+                },
+
+
+
+
+                resetSlider() {
+                    this.sliderIndex = 0;
+
+                    const container = document.getElementById('slider');
+                    if (container) {
+                        container.style.transition = 'none';
+                        container.style.transform = 'translateX(0)';
+                        requestAnimationFrame(() => {
+                            container.style.transition = '';
+                        });
+                    }
+                },
+
+
+                /* =====================
+                    SWIPE (MOBILE)
+                ===================== */
+                touchStart(e) {
+                    this.startX = e.touches[0].clientX;
+                },
+
+                touchEnd(e) {
+                    this.endX = e.changedTouches[0].clientX;
+                    this.handleSwipe();
+                },
+
+                handleSwipe() {
+                    if (this.startX - this.endX > 50) {
+                        this.next(); // swipe left
+                    } else if (this.endX - this.startX > 50) {
+                        this.prev(); // swipe right
+                    }
+                },
+
+                startAutoPlay() {
+                    this.stopAutoPlay();
+
+                    this.autoPlayInterval = setInterval(() => {
+                        if (this.isPaused) return;
+                        this.next(); // infinite loop handled here
+                    }, this.autoPlayDelay);
+                },
+
+
+                stopAutoPlay() {
+                    if (this.autoPlayInterval) {
+                        clearInterval(this.autoPlayInterval);
+                        this.autoPlayInterval = null;
+                    }
+                },
+
+                pauseAutoPlay() {
+                    this.isPaused = true;
+                },
+
+                resumeAutoPlay() {
+                    this.isPaused = false;
+                },
+                init() {
+                    this.startAutoPlay();
+                },
+
+
             }
-            return [this.initialStatic];
-        },
-
-        currentImages() {
-            const items = this.displayedItems();
-            return items[0]?.img ?? [];
-        },
-
-        /* =====================
-            SLIDER CONTROLS
-        ===================== */
-next() {
-    const total = this.currentImages().length;
-    if (total <= 1) return;
-
-    this.sliderIndex = (this.sliderIndex + 1) % total;
-    this.updateSlider();
-},
-
-prev() {
-    const total = this.currentImages().length;
-    if (total <= 1) return;
-
-    this.sliderIndex =
-        (this.sliderIndex - 1 + total) % total;
-    this.updateSlider();
-},
-
-
-
-
-
-
-
- updateSlider() {
-    const container = document.getElementById('slider');
-    if (!container || !container.children.length) return;
-
-    const slide = container.children[0];
-    const slideWidth = slide.offsetWidth;
-    const step = slideWidth + this.gap;
-
-    container.style.willChange = 'transform';
-    container.style.transform =
-        `translateX(-${220 * this.sliderIndex}px)`;
-
-    // Mobile slider
-    const containerMobile = document.getElementById('sliderMobile');
-    if (containerMobile) {
-        containerMobile.style.willChange = 'transform';
-        containerMobile.style.transform =
-            `translateX(-${100 * this.sliderIndex}%)`;
-    }
-},
-
-
-
-
-        resetSlider() {
-    this.sliderIndex = 0;
-
-    const container = document.getElementById('slider');
-    if (container) {
-        container.style.transition = 'none';
-        container.style.transform = 'translateX(0)';
-        requestAnimationFrame(() => {
-            container.style.transition = '';
-        });
-    }
-},
-
-
-        /* =====================
-            SWIPE (MOBILE)
-        ===================== */
-        touchStart(e) {
-            this.startX = e.touches[0].clientX;
-        },
-
-        touchEnd(e) {
-            this.endX = e.changedTouches[0].clientX;
-            this.handleSwipe();
-        },
-
-        handleSwipe() {
-            if (this.startX - this.endX > 50) {
-                this.next(); // swipe left
-            } else if (this.endX - this.startX > 50) {
-                this.prev(); // swipe right
-            }
-        },
-
-   startAutoPlay() {
-    this.stopAutoPlay();
-
-    this.autoPlayInterval = setInterval(() => {
-        if (this.isPaused) return;
-        this.next(); // infinite loop handled here
-    }, this.autoPlayDelay);
-},
-
-
-stopAutoPlay() {
-    if (this.autoPlayInterval) {
-        clearInterval(this.autoPlayInterval);
-        this.autoPlayInterval = null;
-    }
-},
-
-pauseAutoPlay() {
-    this.isPaused = true;
-},
-
-resumeAutoPlay() {
-    this.isPaused = false;
-},
-init() {
-    this.startAutoPlay();
-},
-
-
-    }
-}
-</script>
+        }
+    </script>
 
 
 
 </body>
 
 </html>
-

@@ -149,12 +149,16 @@
         <div class="section space-y-4">
             <h2 class="text-xl font-bold">Location</h2>
             <div class="grid grid-cols-3 gap-4">
-                <input name="locate_text_en" placeholder="Location Text EN" class="input"
+                {{-- <input name="locate_text_en" placeholder="Location Text EN" class="input"
                     value="{{ $project->locate_text_en }}">
                 <input name="locate_text_kh" placeholder="Location Text KH" class="input"
                     value="{{ $project->locate_text_kh }}">
                 <input name="locate_text_ch" placeholder="Location Text CH" class="input"
-                    value="{{ $project->locate_text_ch }}">
+                    value="{{ $project->locate_text_ch }}"> --}}
+
+                <textarea name="locate_text_en" cols="3" placeholder="Location Text EN" class="input">{{ $project->locate_text_en }}</textarea>
+                <textarea name="locate_text_kh" cols="3"  placeholder="Location Text KH"  class="input">{{ $project->locate_text_kh }}</textarea>
+                <textarea name="locate_text_ch" cols="3"  placeholder="Location Text CH" class="input">{{ $project->locate_text_ch }}</textarea>
             </div>
             <input name="locate_link" placeholder="Google Map Link" class="input"
                 value="{{ $project->locate_link }}">
