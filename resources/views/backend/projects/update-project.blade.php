@@ -307,7 +307,7 @@
                                         <button type="button" @click="removeImage(cIndex, tIndex, iIndex)" class="btn btn-sm btn-danger">✕</button>
                                     </div>
                                 </template> --}}
-                                <p class="mt-4">Image Slider - Min: 4 Images (please remove all images first for updated - w: 300px, h: 200px)</p>
+                                <p class="mt-4">Image Slider - Min: 4 Images (please remove all images first amd upload new images for updated - w: 300px, h: 200px)</p>
                                 <template x-for="(preview, iIndex) in type.imgPreview" :key="iIndex">
                                     <div class="d-flex align-items-center mb-2">
                                         <input type="file"

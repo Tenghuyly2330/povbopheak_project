@@ -12,7 +12,7 @@
                 : '我们的客户')
         }}
         <p class="text-sm md:text-lg font-normal text-[#03254B] py-2 md:px-0 px-10">
-            
+
             {{ app()->getLocale() === 'en'
                 ? 'All our projects are well trusted by all local and international customers.'
                 : (app()->getLocale() === 'kh'
@@ -56,12 +56,12 @@
     </div>
 
     <!-- DESKTOP GRID -->
-    <div class="hidden md:flex gap-2 px-6">
+    <div class="hidden md:grid grid-cols-5 gap-2 px-6">
         @foreach ($showCustomer as $customer)
             @if(is_array($customer->images))
                 @foreach($customer->images as $img)
                     <img src="{{ asset($img) }}"
-                         class="w-1/5 h-64 object-cover"
+                         class="aspect-3/2 object-cover"
                          alt="Customer Image">
                 @endforeach
             @endif
