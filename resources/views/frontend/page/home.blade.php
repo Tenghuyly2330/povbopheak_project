@@ -103,7 +103,7 @@
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/whatsapp.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
-                    <a href=" https://www.youtube.com/@povbopheaklandhome3948" target="_blank"
+                    <a href="https://www.youtube.com/@PovBopheakLandandHomeCambodia" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/youtube.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
