@@ -996,6 +996,8 @@
             </div>
         </div>
 
+        <h3 class="text-center"><span class="font-bold">Total Visitors : </span> {{ $totalVisitors }}</h3>
+
     </div>
 </div>
 

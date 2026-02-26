@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class FreelancersController extends Controller
 {
     public function Freelancers(){
-        return view('frontend.layout.freelancers');
+        $totalVisitors = DB::table('visitors')->count();
+        
+        return view('frontend.layout.freelancers', compact('totalVisitors'));
     }
 }

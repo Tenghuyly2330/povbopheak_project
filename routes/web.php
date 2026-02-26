@@ -36,7 +36,7 @@ Route::get('/', function () {
     $showOurTeam = DB::table('our_team')->orderBy('order')->get();
     $showCustomer = Customer::all();
     $projects = Project::orderBy('created_at', 'ASC')->get();
-
+    $totalVisitors = DB::table('visitors')->count();
     // 🔹 Static News Data (ONE SOURCE)
     $news = NewsLatest::all();
 
@@ -45,7 +45,8 @@ Route::get('/', function () {
         'showOurTeam',
         'showCustomer',
         'projects',
-        'news'
+        'news',
+        'totalVisitors'
     ));
 })->name('home');
 
@@ -54,22 +55,23 @@ Route::get('/', function () {
 // 🔹 News Detail Route
 Route::get('/news/{id}', function ($id) {
     $newsdetails = NewsLatest::all();
+    $totalVisitors = DB::table('visitors')->count();
     $item = collect($newsdetails)->firstWhere('id', $id);
     abort_if(!$item, 404);
 
-    return view('frontend.page.detail-news', compact('item'));
+    return view('frontend.page.detail-news', compact('item', 'totalVisitors'));
 
 })->name('news.show');
 
 Route::get('/show/{slug}', function ($slug) {
     $projects = Project::where('slug', $slug)->firstOrFail();
-
+    $totalVisitors = DB::table('visitors')->count();
     // ✅ Decode category ONCE
     $categories = is_array($projects->category)
         ? $projects->category
         : json_decode($projects->category ?? '[]', true);
 
-    return view('frontend.page.show.index', compact('projects', 'categories'));
+    return view('frontend.page.show.index', compact('projects', 'categories', 'totalVisitors'));
 })->name('show');
 
 // Route for switch Langage
@@ -92,7 +94,7 @@ Route::post('/submit/login', [AuthController::class,'submitLogin'])->name('submi
 // ==== Route Logout ====
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::post('/submit/logout',[AuthController::class,'submitLogout'])->name('logout.submit');
-                                                  
+
 
 Route::middleware(['auth'])->group(function(){
     // Admin Dashboard
