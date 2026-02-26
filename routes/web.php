@@ -16,7 +16,7 @@ use App\Models\NewsLatest;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\UniqueVisitor;
 // Route::get('/', function () {
 //     $showAboutUs = DB::table('about_us')->get();
 //     $showOurTeam = DB::table('our_team')->get();
@@ -30,58 +30,53 @@ use Illuminate\Support\Facades\Route;
 //     ));
 // })->name('home');
 
-Route::get('/', function () {
+Route::middleware(['web', UniqueVisitor::class])->group(function () {
 
-    $showAboutUs = DB::table('about_us')->get();
-    $showOurTeam = DB::table('our_team')->orderBy('order')->get();
-    $showCustomer = Customer::all();
-    $projects = Project::orderBy('created_at', 'ASC')->get();
-    $totalVisitors = DB::table('visitors')->count();
-    // 🔹 Static News Data (ONE SOURCE)
-    $news = NewsLatest::all();
+    Route::get('/', function () {
+        $showAboutUs = DB::table('about_us')->get();
+        $showOurTeam = DB::table('our_team')->orderBy('order')->get();
+        $showCustomer = Customer::all();
+        $projects = Project::orderBy('created_at', 'ASC')->get();
+        $visitorCount = DB::table('visitor_count')->first()->count;
+        $news = NewsLatest::all();
 
-    return view('frontend.layout.index', compact(
-        'showAboutUs',
-        'showOurTeam',
-        'showCustomer',
-        'projects',
-        'news',
-        'totalVisitors'
-    ));
-})->name('home');
+        return view('frontend.layout.index', compact(
+            'showAboutUs',
+            'showOurTeam',
+            'showCustomer',
+            'projects',
+            'news',
+            'visitorCount'
+        ));
+    })->name('home');
 
+    Route::get('/news/{id}', function ($id) {
+        $newsdetails = NewsLatest::all();
+        $visitorCount = DB::table('visitor_count')->first()->count;
+        $item = collect($newsdetails)->firstWhere('id', $id);
+        abort_if(!$item, 404);
 
+        return view('frontend.page.detail-news', compact('item', 'visitorCount'));
+    })->name('news.show');
 
-// 🔹 News Detail Route
-Route::get('/news/{id}', function ($id) {
-    $newsdetails = NewsLatest::all();
-    $totalVisitors = DB::table('visitors')->count();
-    $item = collect($newsdetails)->firstWhere('id', $id);
-    abort_if(!$item, 404);
+    Route::get('/show/{slug}', function ($slug) {
+        $projects = Project::where('slug', $slug)->firstOrFail();
+        $visitorCount = DB::table('visitor_count')->first()->count;
+        $categories = is_array($projects->category)
+            ? $projects->category
+            : json_decode($projects->category ?? '[]', true);
 
-    return view('frontend.page.detail-news', compact('item', 'totalVisitors'));
+        return view('frontend.page.show.index', compact('projects', 'categories', 'visitorCount'));
+    })->name('show');
 
-})->name('news.show');
+    Route::get('/lang/{lang}', [LocaleController::class, 'switch'])->name('lang.switch');
 
-Route::get('/show/{slug}', function ($slug) {
-    $projects = Project::where('slug', $slug)->firstOrFail();
-    $totalVisitors = DB::table('visitors')->count();
-    // ✅ Decode category ONCE
-    $categories = is_array($projects->category)
-        ? $projects->category
-        : json_decode($projects->category ?? '[]', true);
+    Route::get('/freelancers', [FreelancersController::class, 'Freelancers'])->name('freelancer');
 
-    return view('frontend.page.show.index', compact('projects', 'categories', 'totalVisitors'));
-})->name('show');
+    Route::post('/contact-send', [ContactController::class, 'send'])->name('contact.send');
+    Route::post('/application-send', [ApplicationController::class, 'send'])->name('application.send');
 
-// Route for switch Langage
-Route::get('/lang/{lang}', action: [LocaleController::class, 'switch'])
-    ->name('lang.switch');
-
-Route::get('/freelancers', [FreelancersController::class, 'Freelancers'])->name('freelancer');
-
-Route::post('/contact-send', [ContactController::class, 'send'])->name('contact.send');
-Route::post('/application-send', [ApplicationController::class, 'send'])->name('application.send');
+});
 
 //=========================================== Profile View and Update=============================
 Route::get('/admin/profile', [AuthController::class,'profile'])->name('profile')->middleware('auth');

@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('visitors', function (Blueprint $table) {
+        Schema::create('visitor_count', function (Blueprint $table) {
             $table->id();
-            $table->string('ip_address')->unique();
+            $table->unsignedBigInteger('count')->default(0);
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('visitors');
+        Schema::dropIfExists('visitor_count');
     }
 };

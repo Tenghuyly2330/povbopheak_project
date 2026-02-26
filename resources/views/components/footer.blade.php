@@ -996,8 +996,17 @@
             </div>
         </div>
 
-        <h3 class="text-center"><span class="font-bold">Total Visitors : </span> {{ $totalVisitors }}</h3>
-
+        <div class="text-[16px] text-center text-[#03254B] flex items-center gap-2 justify-center">
+            <svg class="w-5 h-5" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"><g width="100%" height="100%" transform="matrix(1,0,0,1,0,0)"><g transform="matrix(1.038 0 0 1.143 -50.462 -221.714)"><g><path d="m64 200.125c5.611 0 10.471 4 12.605 6.108l.004.004c.999 1 .999 2.526 0 3.526l-.004.005c-2.134 2.107-6.994 6.107-12.605 6.107s-10.471-4-12.605-6.108l-.004-.004c-.999-1-.999-2.526 0-3.526l.004-.005c2.134-2.107 6.994-6.107 12.605-6.107zm0 3.5c-2.657 0-4.815 1.96-4.815 4.375s2.158 4.375 4.815 4.375 4.815-1.96 4.815-4.375-2.158-4.375-4.815-4.375z" fill="#03254b" fill-opacity="1" data-original-color="#0dadf5ff" stroke="none" stroke-opacity="1"/></g><g><ellipse cx="64" cy="208" fill="#03254b" rx="2.889" ry="2.625" fill-opacity="1" data-original-color="#1f397bff" stroke="none" stroke-opacity="1"/></g></g></g></svg>
+            <span>
+                <span class="font-bold">
+                {{ app()->getLocale() === 'en'
+                                    ? 'Visitors'
+                                    : (app()->getLocale() === 'kh'
+                                        ? 'អ្នកទស្សនា'
+                                        : '访客') }}:</span> {{ $visitorCount }}
+            </span>
+        </div>
     </div>
 </div>
 
