@@ -44,15 +44,29 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-        display: none;
-    }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            display: none;
+        }
 
         [x-cloak] {
             display: none !important;
         }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1621V9L0SN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-1621V9L0SN');
+    </script>
 </head>
 
 <body class="font-kantumruy overflow-x-hidden">
