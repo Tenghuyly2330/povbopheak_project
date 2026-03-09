@@ -82,7 +82,7 @@
                         : ' 我们的社交媒体频道') }}
             </h1>
             {{-- Icon Link Social Media --}}
-            <div class="flex md:flex-row flex-wrap justify-start items-center space-x-0 md:space-x-4">
+            <div class="flex md:flex-row flex-wrap justify-start items-center space-x-0 md:space-x-1">
                 <a href="https://www.pinterest.com/PovBopheakLandandHome/?actingBusinessId=1128011175326800878" target="_blank"
                         class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
                         <img src="{{ asset('assets/icon/pinterest.svg') }}" alt="" class="w-full h-full object-cover">
@@ -108,7 +108,7 @@
                     class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/youtube.png') }}" alt=""
                         class="w-full h-full object-cover">
-                </a>
+                </a> <br>
                 <a href="https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW"
                     class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/tiktok.png') }}" alt="" class="w-full h-full object-cover">
