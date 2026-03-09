@@ -91,6 +91,7 @@
     <!-- Real Estate Projects -->
     <div class="relative w-full py-0 md:py-24">
         @include('frontend.page.real-estate-projects')
+        @include('frontend.page.youtube')
     </div>
     {{-- Our Team --}}
     <div class="relative w-full -mt-8">

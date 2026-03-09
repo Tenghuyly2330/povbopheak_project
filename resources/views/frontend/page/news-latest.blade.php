@@ -84,40 +84,4 @@
 
     </div>
 </section>
-<!-- YouTube Section Below Latest News -->
-<section class="bg-gray-50" id="youtube">
-
-    <div class="max-w-7xl mx-auto px-6">
-        <!-- Header -->
-        <div class="text-center mb-10">
-            <h2 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B]">
-                 {{ app()->getLocale() === 'en'
-                    ? 'Youtube Channel'
-                    : (app()->getLocale() === 'kh'
-                        ? 'ឆាណែល Youtube'
-                        : 'YouTube 頻道')
-                }}
-            </h2>
-        </div>
-        <!-- Grid of Embedded Videos -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach ($getLinkYoutube as $video)
-                <div class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-
-                    <!-- Embedded Video -->
-                    <div class="aspect-video">
-                        <iframe 
-                            class="w-full h-full"
-                            src="{{ $video->link }}" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-    </div>
-</section>
 
