@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\LocaleController;
 use App\Http\Controllers\backend\NewslatestController;
 use App\Http\Controllers\backend\OurTeamController;
 use App\Http\Controllers\backend\ProjectController;
+use App\Http\Controllers\backend\YoutubeLikeController;
 use App\Http\Controllers\frontend\FreelancersController;
 use App\Http\Controllers\Send\ApplicationController;
 use App\Http\Controllers\Send\ContactController;
@@ -17,6 +18,8 @@ use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UniqueVisitor;
+use App\Models\LinkYoutube;
+
 // Route::get('/', function () {
 //     $showAboutUs = DB::table('about_us')->get();
 //     $showOurTeam = DB::table('our_team')->get();
@@ -39,6 +42,7 @@ Route::middleware(['web', UniqueVisitor::class])->group(function () {
         $projects = Project::orderBy('created_at', 'ASC')->get();
         $visitorCount = DB::table('visitor_count')->first()->count;
         $news = NewsLatest::all();
+        $getLinkYoutube = LinkYoutube::all();
 
         return view('frontend.layout.index', compact(
             'showAboutUs',
@@ -46,7 +50,8 @@ Route::middleware(['web', UniqueVisitor::class])->group(function () {
             'showCustomer',
             'projects',
             'news',
-            'visitorCount'
+            'visitorCount',
+            'getLinkYoutube'
         ));
     })->name('home');
 
@@ -129,5 +134,7 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('newslatest/{id}/image/{index}', [NewslatestController::class, 'deleteImage'])
     ->name('newslatest.image.delete');
 
+    Route::resource('youtube', YoutubeLikeController::class);
+    Route::delete('youtube/{id}', [YoutubeLikeController::class, 'destroy'])->name('youtube.destroy');
 
 });

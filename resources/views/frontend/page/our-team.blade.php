@@ -1,5 +1,5 @@
 <section class="relative overflow-hidden">
-    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] md:mt-0 mt-4 py-4 mb-10">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] md:mt-0 mt-10 py-4 mb-10">
         {{ app()->getLocale() === 'en'
     ? 'Message from the Chairman'
     : (app()->getLocale() === 'kh'

@@ -219,6 +219,14 @@
             </ul>
           </li>
 
+           <!-- Link Youtube -->
+          <li class="menu-item">
+            <a href="{{ route('youtube.index') }}" class="menu-link">
+              <i class="menu-icon tf-icons bx bxl-youtube"></i>
+              <div data-i18n="Analytics">YT Video</div>
+            </a>
+          </li>
+
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-package"></i>

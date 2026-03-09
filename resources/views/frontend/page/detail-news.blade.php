@@ -76,7 +76,7 @@
                 class="w-12 h-12 object-contain md:object-cover animate-bounce"
             >
         </button>
-        <div class="relative w-full min-h-screen">
+        <div class="relative w-full min-h-screen bg-white/90">
 
             <!-- BACKGROUND IMAGE -->
             <img
@@ -89,58 +89,58 @@
             @include('components.navbar')
 
             <section class="py-16">
-    <div class="max-w-7xl mx-auto px-6">
+                <div class="max-w-7xl mx-auto px-6">
 
-        <h1 class="text-3xl font-bold text-[#03244a] mb-2">
-            {{ app()->getLocale() === 'en'
-                ? $item->title_en
-                : (app()->getLocale() === 'kh'
-                    ? $item->title_kh
-                    : $item->title_cn)
-            }}
-        </h1>
+                    <h1 class="text-3xl font-bold text-[#03244a] mb-2">
+                        {{ app()->getLocale() === 'en'
+                            ? $item->title_en
+                            : (app()->getLocale() === 'kh'
+                                ? $item->title_kh
+                                : $item->title_cn)
+                        }}
+                    </h1>
 
-        <p class="text-sm text-[#03244a] mb-6">
-            {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
-        </p>
+                    <p class="text-sm text-[#03244a] mb-6">
+                        {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
+                    </p>
 
-        <!-- Up to 2 Images -->
-        @if (is_array($item->images) && count($item->images) > 0)
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-8">
-                @foreach ($item->images as $img)
-                    <img
-                        src="{{ asset($img) }}"
-                        alt="{{ $item->title_en }}"
-                        class="aspect-3/2 object-cover rounded-xl"
-                    >
-                @endforeach
-            </div>
-        @endif
+                    <!-- Up to 2 Images -->
+                    @if (is_array($item->images) && count($item->images) > 0)
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-8">
+                            @foreach ($item->images as $img)
+                                <img
+                                    src="{{ asset($img) }}"
+                                    alt="{{ $item->title_en }}"
+                                    class="aspect-3/2 object-cover rounded-xl"
+                                >
+                            @endforeach
+                        </div>
+                    @endif
 
 
-        <p class="ck-content text-[#03244a] font-semibold leading-relaxed">
-            {!! app()->getLocale() === 'en'
-                ? $item->description_en
-                : (app()->getLocale() === 'kh'
-                    ? $item->description_kh
-                    : $item->description_cn)
-            !!}
-            </p>
+                    <p class="ck-content text-[#03244a] font-semibold leading-relaxed">
+                        {!! app()->getLocale() === 'en'
+                            ? $item->description_en
+                            : (app()->getLocale() === 'kh'
+                                ? $item->description_kh
+                                : $item->description_cn)
+                        !!}
+                        </p>
 
-        <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center mt-4">
-                <a href="{{ url('/') }}#news" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
-                   bg-clip-text text-transparent font-semibold text-md">
-                    ← {{ app()->getLocale() === 'en'
-                ? 'Back to News'
-                : (app()->getLocale() === 'kh'
-                    ? 'ត្រឡប់ទៅព្រឹត្តិការណ៍'
-                    : '← Back to News')
-                }}
-                </a>
-            </div>
+                    <div class="w-40 h-12 rounded-full bg-[#03244a] flex items-center justify-center mt-4">
+                            <a href="{{ url('/') }}#news" class="cursor-pointer bg-linear-to-r from-[#f2ad46] via-[#f7ca68] to-[#fce88d]
+                            bg-clip-text text-transparent font-semibold text-md">
+                                ← {{ app()->getLocale() === 'en'
+                            ? 'Back to News'
+                            : (app()->getLocale() === 'kh'
+                                ? 'ត្រឡប់ទៅព្រឹត្តិការណ៍'
+                                : '← Back to News')
+                            }}
+                            </a>
+                        </div>
 
-    </div>
-</section>
+                </div>
+            </section>
 
         </div>
         {{-- Background Footer --}}
