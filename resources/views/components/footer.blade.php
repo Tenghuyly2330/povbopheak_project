@@ -84,7 +84,7 @@
             {{-- Icon Link Social Media --}}
             <div class="flex justify-start items-center space-x-0 md:space-x-4">
                 <a href="https://www.pinterest.com/PovBopheakLandandHome/?actingBusinessId=1128011175326800878" target="_blank"
-                        class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                        class="flex justify-center items-center w-8 h-8 rounded-full cursor-pointer">
                         <img src="{{ asset('assets/icon/pinterest.svg') }}" alt="" class="w-full h-full object-cover">
                 </a>
                 <a href="https://www.facebook.com/PovBopheakGroup"
