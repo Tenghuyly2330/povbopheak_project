@@ -1,9 +1,9 @@
 
-<section class="bg-gray-50 py-16" id="news">
+<section class="bg-gray-50 py-10 md:py-16" id="news">
     <div class="max-w-7xl mx-auto px-6">
 
         <!-- Header -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-10">
             <h2 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B]">
                  {{ app()->getLocale() === 'en'
                     ? 'Latest News'
@@ -89,7 +89,7 @@
 
     <div class="max-w-7xl mx-auto px-6">
         <!-- Header -->
-        <div class="text-center mb-12">
+        <div class="text-center mb-10">
             <h2 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B]">
                  {{ app()->getLocale() === 'en'
                     ? 'Youtube Channel'

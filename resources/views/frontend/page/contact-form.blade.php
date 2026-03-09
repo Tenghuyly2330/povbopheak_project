@@ -15,7 +15,7 @@
 
 <div class="w-full py-6" id="contact-form">
     <!-- Title -->
-    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-4 md:py-16">
+    <h1 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B] py-10 md:py-16">
 
         {{ app()->getLocale() === 'en'
             ? 'Contact Form'
