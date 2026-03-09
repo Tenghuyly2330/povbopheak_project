@@ -82,38 +82,42 @@
                         : ' 我们的社交媒体频道') }}
             </h1>
             {{-- Icon Link Social Media --}}
-            <div class="flex justify-start items-center space-x-0 md:space-x-4">
+            <div class="flex md:flex-row flex-wrap justify-start items-center space-x-0 md:space-x-4">
                 <a href="https://www.pinterest.com/PovBopheakLandandHome/?actingBusinessId=1128011175326800878" target="_blank"
-                        class="flex justify-center items-center w-8 h-8 rounded-full cursor-pointer">
+                        class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
                         <img src="{{ asset('assets/icon/pinterest.svg') }}" alt="" class="w-full h-full object-cover">
                 </a>
                 <a href="https://www.facebook.com/PovBopheakGroup"
-                    class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/fb.png') }}" alt="" class="w-full h-full object-cover">
                 </a>
+                 <a href="https://www.instagram.com/povbopheak.landandhome?igsh=eW9iajY0bzU1d3Ex"
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
+                    <img src="{{ asset('assets/icon/instagram-application-logo.png') }}" alt="" class="w-full h-full object-cover">
+                </a>
                 <a href="https://t.me/+85516222809"
-                    class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">
                 </a>
                 <a href="https://wa.me/85587446277?text=Hello%20I%20want%20more%20information"
-                    class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/whatsapp.png') }}" alt=""
                         class="w-full h-full object-cover">
                 </a>
                 <a href="https://www.youtube.com/@povbopheaklandhome3948"
-                    class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/youtube.png') }}" alt=""
                         class="w-full h-full object-cover">
                 </a>
                 <a href="https://www.tiktok.com/@povbopheaklandandhome?_r=1&_t=ZS-92yM8DJyKCW"
-                    class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/tiktok.png') }}" alt="" class="w-full h-full object-cover">
                 </a>
-                <a href="" class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                <a href="" class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/wechat.png') }}" alt="" class="w-full h-full object-cover">
                 </a>
                 <a href="https://www.linkedin.com/company/pov-bopheak-land-home-co-ltd/?viewAsMember=true"
-                    class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer">
+                    class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer">
                     <img src="{{ asset('assets/icon/in.png') }}" alt="" class="w-full h-full object-cover">
                 </a>
             </div>

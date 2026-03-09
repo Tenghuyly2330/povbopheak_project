@@ -94,6 +94,10 @@
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/fb.png') }}" alt="" class="w-full h-full object-cover">
                     </a>
+                     <a href="https://www.instagram.com/povbopheak.landandhome?igsh=eW9iajY0bzU1d3Ex" target="_blank"
+                        class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
+                        <img src="{{ asset('assets/icon/instagram-application-logo.png') }}" alt="" class="w-full h-full object-cover">
+                    </a>
                     <a href="https://t.me/+85516222809" target="_blank"
                         class="flex justify-center items-center w-12 h-12 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/te.png') }}" alt="" class="w-full h-full object-cover">

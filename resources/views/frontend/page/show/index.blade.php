@@ -313,6 +313,7 @@
                         $socialLinks = [
                             'pinterest' => 'https://www.pinterest.com/PovBopheakLandandHome/?actingBusinessId=1128011175326800878',
                             'fb' => 'https://www.facebook.com/PovBopheakGroup',
+                            'instagram-application-logo' => 'https://www.instagram.com/povbopheak.landandhome?igsh=eW9iajY0bzU1d3Ex',
                             'te' => 'https://t.me/+85516222809',
                             'whatsapp' => 'https://wa.me/85587446277?text=Hello%20I%20want%20more%20information',
                             'youtube' => 'https://www.youtube.com/@PovBopheakLandandHomeCambodia',
