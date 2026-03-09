@@ -6,10 +6,10 @@
         <div class="text-center mb-10">
             <h2 class="text-2xl md:text-5xl font-semibold text-center text-[#03254B]">
                  {{ app()->getLocale() === 'en'
-                    ? 'Youtube Channel'
+                    ? "Pov Bopheak Land & Home YouTube Video's"
                     : (app()->getLocale() === 'kh'
-                        ? 'ឆាណែល Youtube'
-                        : 'YouTube 頻道')
+                        ? 'ក្រុមហ៊ុនពៅបូភ័ក្ត្រលែន & ហូម វីដេអូ YouTube'
+                        : 'Pov Bopheak Land & Home YouTube 視頻')
                 }}
             </h2>
         </div>

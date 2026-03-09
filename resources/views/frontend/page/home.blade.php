@@ -86,7 +86,7 @@
 
                 {{-- Icon Link Social Media --}}
                 <div class="w-16 h-96 rounded-full flex flex-col justify-between items-center py-2">
-                     <a href="https://www.pinterest.com/alexevengroen/pov-bopheak-land-home-co-ltd/" target="_blank"
+                     <a href="https://www.pinterest.com/PovBopheakLandandHome/?actingBusinessId=1128011175326800878" target="_blank"
                         class="flex justify-center items-center w-10 h-10 rounded-full cursor-pointer animate-bounce">
                         <img src="{{ asset('assets/icon/pinterest.svg') }}" alt="" class="w-full h-full object-cover">
                     </a>

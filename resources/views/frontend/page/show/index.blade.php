@@ -311,7 +311,7 @@
                 <div class="flex md:flex-row flex-wrap md:gap-4 items-center py-5">
                     @php
                         $socialLinks = [
-                            'pinterest' => 'https://www.pinterest.com/alexevengroen/pov-bopheak-land-home-co-ltd/',
+                            'pinterest' => 'https://www.pinterest.com/PovBopheakLandandHome/?actingBusinessId=1128011175326800878',
                             'fb' => 'https://www.facebook.com/PovBopheakGroup',
                             'te' => 'https://t.me/+85516222809',
                             'whatsapp' => 'https://wa.me/85587446277?text=Hello%20I%20want%20more%20information',

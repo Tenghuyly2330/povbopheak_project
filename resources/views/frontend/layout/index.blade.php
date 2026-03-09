@@ -13,6 +13,7 @@
     <meta property="og:url" content="https://www.povbopheak.com/">
     {{-- <meta property="og:url" content="{{ url('/') }}"> --}}
     <meta property="og:type" content="website">
+    <meta name="p:domain_verify" content="59bd8ac2b2d85278447f6ad1cb0702d6"/>
 
     <title>Pov Bopheak Land & Home</title>
 
